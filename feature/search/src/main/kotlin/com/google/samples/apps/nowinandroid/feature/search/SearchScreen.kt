@@ -405,7 +405,9 @@ private fun RecentSearchesBody(
                         append(stringResource(id = searchR.string.feature_search_recent_searches))
                     }
                 },
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                modifier = Modifier
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                    .testTag("recentSearches"),
             )
             if (recentSearchQueries.isNotEmpty()) {
                 IconButton(
@@ -451,12 +453,15 @@ private fun SearchToolbar(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier.fillMaxWidth(),
     ) {
-        IconButton(onClick = { onBackClick() }) {
+        IconButton(
+            onClick = { onBackClick() },
+            modifier = modifier.testTag("backBtn")
+        ) {
             Icon(
                 imageVector = NiaIcons.ArrowBack,
                 contentDescription = stringResource(
                     id = string.core_ui_back,
-                ),
+                )
             )
         }
         SearchTextField(
