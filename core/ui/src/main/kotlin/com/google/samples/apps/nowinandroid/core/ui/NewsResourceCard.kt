@@ -146,7 +146,8 @@ fun NewsResourceCardExpanded(
                                         ),
                                         flags = dragAndDropFlags,
                                     )
-                                },
+                                }
+                                .testTag("newsTitle"),
                         )
                         Spacer(modifier = Modifier.weight(1f))
                         BookmarkButton(isBookmarked, onToggleBookmark)
